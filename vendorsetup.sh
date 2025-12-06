@@ -1,7 +1,5 @@
 #!/bin/bash
-
 set -e
-
 clone_if_missing() {
     local repo_url="$1"
     local branch="$2"
@@ -34,5 +32,6 @@ clone_if_missing "https://github.com/fogos4ever/android_kernel_motorola_sm6375.g
 # Hardware
 clone_if_missing "https://github.com/fogos4ever/android_hardware_motorola.git" "lineage-23.2" "hardware/motorola"
 clone_if_missing "https://github.com/JNWSG/hardware_dolby.git" "16.0" "hardware/dolby"
+clone_if_missing "https://github.com/LineageOS/android_hardware_samsung_slsi_nfc.git" "" "hardware/samsung_slsi/nfc"
 # ViPER4AndroidFX
 clone_if_missing "https://github.com/JNWSG/packages_apps_ViPER4AndroidFX.git" "v4a" "packages/apps/ViPER4AndroidFX"
