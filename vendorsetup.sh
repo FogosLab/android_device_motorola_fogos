@@ -1,16 +1,18 @@
 #!/bin/bash
-set -e
+
+echo "--- Initializing Source Sync ---"
+
 clone_if_missing() {
-    local repo_url="$1"
-    local branch="$2"
-    local target_dir="$3"
+    local repo_url=$1
+    local branch=$2
+    local target_dir=$3
 
     if [ -d "$target_dir/.git" ] || [ -d "$target_dir" ]; then
-        echo "[SKIP] $target_dir already exists."
+        echo "Skipping: $target_dir already exists"
         return 0
     fi
 
-    echo "[CLONE] $target_dir"
+    echo "Cloning: $target_dir"
 
     if [ -n "$branch" ]; then
         git clone --branch "$branch" "$repo_url" "$target_dir"
@@ -18,7 +20,12 @@ clone_if_missing() {
         git clone "$repo_url" "$target_dir"
     fi
 
-    echo "[DONE] $target_dir"
+    if [ $? -eq 0 ]; then
+        echo "Successfully cloned $target_dir"
+    else
+        echo "Error: Failed to clone $target_dir"
+        return 1
+    fi
 }
 
 # Device
@@ -35,3 +42,5 @@ clone_if_missing "https://github.com/JNWSG/hardware_dolby.git" "16.0" "hardware/
 clone_if_missing "https://github.com/LineageOS/android_hardware_samsung_slsi_nfc.git" "" "hardware/samsung_slsi/nfc"
 # ViPER4AndroidFX
 clone_if_missing "https://github.com/JNWSG/packages_apps_ViPER4AndroidFX.git" "v4a" "packages/apps/ViPER4AndroidFX"
+
+echo "--- Source Sync Complete ---"
