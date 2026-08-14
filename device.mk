@@ -29,6 +29,7 @@ PRODUCT_PACKAGES += \
     LineageApertureAppDevice \
     ProductFrameworksResDevice \
     SystemUIResDevice \
+    SettingsResDevice \
     WifiResDevice \
     WifiResDeviceXT2363-8 \
     WifiResDeviceXT2363-9
@@ -89,6 +90,9 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/com.nxp.mifare.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.nxp.mifare.xml
 
 DEVICE_SKUS := b d
+
+$(call soong_config_set,surfaceflinger,frame_rate_category_high,120)
+$(call soong_config_set,surfaceflinger,frame_rate_category_min,60)
 
 PRODUCT_COPY_FILES += \
 $(foreach DEVICE_SKU, $(DEVICE_SKUS), \
