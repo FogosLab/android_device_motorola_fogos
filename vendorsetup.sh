@@ -34,6 +34,8 @@ clone_if_missing "https://github.com/FogosLab/android_device_motorola_sm6375-com
 # Vendor
 clone_if_missing "https://github.com/FogosLab/android_vendor_motorola_fogos.git" "17" "vendor/motorola/fogos"
 clone_if_missing "https://github.com/FogosLab/android_vendor_motorola_sm6375-common.git" "17" "vendor/motorola/sm6375-common"
+# Kernel
+clone_if_missing "https://github.com/FogosLab/android_device_motorola_fogos-kernel.git" "" "device/motorola/fogos-kernel"
 # Hardware
 clone_if_missing "https://github.com/FogosLab/android_hardware_motorola.git" "lineage-24.0" "hardware/motorola"
 clone_if_missing "https://github.com/JNWSG/hardware_dolby.git" "16.0" "hardware/dolby"
