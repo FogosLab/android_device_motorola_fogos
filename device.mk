@@ -119,5 +119,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
 
+# Kernel
+PRODUCT_COPY_FILES += \
+    device/motorola/fogos-kernel/Image:kernel
+
 # Inherit from vendor blobs
 $(call inherit-product, vendor/motorola/fogos/fogos-vendor.mk)
