@@ -108,6 +108,9 @@ PRODUCT_PACKAGES += \
 # Blur
 TARGET_ENABLE_BLUR := true
 
+# Preopt SystemUI
+PRODUCT_DEXPREOPT_SPEED_APPS += SystemUI
+
 # BCR
 $(call inherit-product-if-exists, vendor/bcr/bcr.mk)
 
